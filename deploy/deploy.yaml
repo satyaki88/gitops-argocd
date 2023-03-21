@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django-app
+spec:
+  selector:
+    matchLabels:
+      app: django-app
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: django-app
+    spec:
+      containers:
+        - name: node-app
+          image: satyaki88/exampledjango-dev:1
+          ports:
+            - containerPort: 8000
+
